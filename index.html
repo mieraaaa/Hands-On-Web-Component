@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Counter Components Demo</title>
+    <script src="counter-display.js"></script>
+    <script src="counter-controls.js"></script>
+    <script src="combined-counter.js"></script>
+    <script src="counter-display-b.js"></script>
+    <script src="counter-controls-b.js"></script>
+
+    <style>
+        .card {
+            border: 1px solid #F875AA;
+            border-radius: 8px;
+            padding: 16px;
+            width: 265px;
+            text-align: center;
+            background-color: #FDCEDF;
+            margin-bottom: 20px;
+            font-family: monospace;
+            font-size: 1rem;
+        }
+        .card h3 {
+            margin: 0;
+            color: #000;
+        }
+        .card p {
+            margin: 4px 0 0;
+            color: #000;
+        }
+    </style>
+</head>
+
+<body style="font-family:sans-serif; display: flex;
+ flex-direction: column; align-items:center; gap:10px;
+ min-height: 90vh; justify-content: center; background-color: #FDFDF6;">
+
+    <div class="card">
+        <h3>Miera Ardiyanti Farica</h3>
+        <p>(24/534436/PA/22665)</p>
+    </div>
+
+    <!-- Komponen 1 -->
+    <counter-display id="display" title="Number Counter" value="0"></counter-display>
+    <!-- Komponen 2 -->
+    <counter-controls id="controls"></counter-controls>
+    <!-- Komponen 3 -->
+    <combined-counter title="Combined Counter" value="0"></combined-counter>
+    <!-- Varian B -->
+     <counter-display-b id="displayB" title="Varian B Counter" value="10"></counter-display-b>
+     <counter-controls-b target="displayB"></counter-controls-b>
+
+    <script>
+        const display = document.getElementById('display');
+        const controls = document.getElementById('controls');
+
+        controls.addEventListener('count-change', e => {
+            display.count += e.detail.delta;
+        });
+    </script>
+
+</body>
+</html>
